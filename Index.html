@@ -1,0 +1,981 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digi Nepal Pro: AI-powered digital marketing agency in Nepal. Grow your business with AI tools, automation, and next-gen strategies. AI marketing in Nepal for digital growth.">
+    <meta name="keywords" content="AI marketing in Nepal, digital growth, AI tools for business, automate marketing Nepal, Digi Nepal Pro, Nepali businesses, startups, entrepreneurs">
+    <title>Digi Nepal Pro - AI-Powered Digital Marketing in Nepal</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #0D47A1; /* Deeper, modern blue */
+            --secondary-blue: #1976D2; /* Lighter blue for accents */
+            --tech-grey-dark: #263238; /* Dark grey for text */
+            --tech-grey-medium: #546E7A; /* Medium grey for subtext */
+            --tech-grey-light: #ECEFF1; /* Light grey for backgrounds */
+            --accent-red: #D32F2F; /* Nepali red accent */
+            --white: #FFFFFF;
+            --font-primary: 'Roboto', sans-serif; /* Modern, clean font */
+            --font-secondary: 'Montserrat', sans-serif; /* For headings */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--tech-grey-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-secondary);
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--tech-grey-medium);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-blue);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-red);
+            color: var(--white);
+            border: 2px solid var(--accent-red);
+        }
+
+        .btn-primary:hover {
+            background-color: darken(var(--accent-red), 10%);
+            border-color: darken(var(--accent-red), 10%);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--tech-grey-light);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%; /* Use percentage for padding */
+        }
+
+        nav .logo {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        nav .logo span {
+            color: var(--accent-red);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--tech-grey-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent-red);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(rgba(13, 71, 161, 0.8), rgba(13, 71, 161, 0.7)), url('https://via.placeholder.com/1920x1080.png/0D47A1/FFFFFF?text=AI+Abstract+Background') no-repeat center center/cover; /* Placeholder for AI background */
+            color: var(--white);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px; /* Adjust for sticky header */
+        }
+
+        #home .container {
+            max-width: 800px;
+        }
+
+        #home h1 {
+            color: var(--white);
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        #home p {
+            color: var(--tech-grey-light);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        #home .cta-buttons .btn {
+            margin: 0 10px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+        #home .btn-primary {
+             background-color: var(--accent-red);
+             color: var(--white);
+        }
+        #home .btn-primary:hover {
+            background-color: #C62828; /* Darker red */
+        }
+        #home .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        #home .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+
+        /* About Us Section */
+        #about .about-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        #about .about-text {
+            flex: 1;
+        }
+        #about .about-visual { /* Placeholder for visual element */
+            flex: 1;
+            background-color: var(--tech-grey-light);
+            min-height: 250px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--tech-grey-medium);
+        }
+        #about .about-visual::before {
+            content: "💡"; /* AI/Tech related icon */
+            font-size: 3rem;
+            color: var(--primary-blue);
+        }
+
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .service-card .icon {
+            font-size: 2.5rem;
+            color: var(--secondary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* AI Tools Marketplace */
+        .tools-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .tools-categories button {
+            background: var(--tech-grey-light);
+            border: 1px solid var(--tech-grey-medium);
+            color: var(--tech-grey-dark);
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tools-categories button.active, .tools-categories button:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .tool-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .tool-item h4 {
+            color: var(--secondary-blue);
+            margin-bottom: 0.5rem;
+        }
+        .tool-item .category-tag {
+            display: inline-block;
+            background-color: var(--tech-grey-light);
+            color: var(--tech-grey-medium);
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            margin-top: 0.5rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works-steps {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            text-align: center;
+            flex-wrap: wrap; /* For responsiveness */
+        }
+
+        .step {
+            flex-basis: 30%; /* Adjust for responsiveness */
+            min-width: 250px; /* Ensure readability on smaller flex items */
+            padding: 1.5rem;
+        }
+
+        .step .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .step h3 {
+            color: var(--primary-blue);
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--secondary-blue);
+        }
+        .testimonial-card p.quote {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--tech-grey-dark);
+        }
+        .testimonial-card p.author {
+            font-weight: bold;
+            text-align: right;
+            color: var(--primary-blue);
+        }
+
+        /* Pricing Section */
+        .pricing-plans {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap; /* For responsiveness */
+        }
+        .pricing-plan {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            flex: 1;
+            min-width: 300px; /* Ensure readability */
+            max-width: 400px; /* Prevent plans from becoming too wide */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pricing-plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .pricing-plan.premium {
+            border: 2px solid var(--secondary-blue);
+        }
+        .pricing-plan h3 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+        }
+        .pricing-plan .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-red);
+            margin: 1rem 0;
+        }
+        .pricing-plan .price span {
+            font-size: 1rem;
+            color: var(--tech-grey-medium);
+        }
+        .pricing-plan ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        .pricing-plan ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 25px;
+            position: relative;
+        }
+        .pricing-plan ul li::before {
+            content: '✓'; /* Checkmark */
+            color: var(--secondary-blue);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .pricing-plan .btn {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+
+        /* Contact Section */
+        #contact .container {
+            max-width: 800px;
+        }
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--tech-grey-dark);
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: var(--font-primary);
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+        .social-links a {
+            font-size: 1.8rem;
+            margin: 0 10px;
+            color: var(--primary-blue);
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-red);
+        }
+        .newsletter-signup {
+            margin-top: 2rem;
+        }
+        .newsletter-signup input[type="email"] {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            width: 70%;
+            max-width: 300px;
+        }
+        .newsletter-signup button {
+            padding: 12px 20px;
+            border-radius: 0 5px 5px 0;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: 1px solid var(--primary-blue);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .newsletter-signup button:hover {
+            background-color: var(--secondary-blue);
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: var(--tech-grey-dark);
+            color: var(--tech-grey-light);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        footer p {
+            color: var(--tech-grey-light);
+            margin: 0;
+        }
+        footer .footer-links {
+            margin-top: 0.5rem;
+        }
+        footer .footer-links a {
+            color: var(--tech-grey-light);
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+        footer .footer-links a:hover {
+            color: var(--accent-red);
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            #home h1 { font-size: 2.8rem; }
+            #home p { font-size: 1.1rem; }
+            .services-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--white);
+                position: absolute;
+                top: 70px; /* Adjust based on header height */
+                left: 0;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            nav ul li a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid var(--tech-grey-light);
+            }
+            nav ul li:last-child a {
+                border-bottom: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+
+            #home { min-height: 70vh; padding-top: 70px; }
+            #home h1 { font-size: 2.2rem; }
+            #home p { font-size: 1rem; }
+            #home .cta-buttons .btn { margin: 10px 0; display: block; width: 80%; margin-left: auto; margin-right: auto; }
+
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+
+            #about .about-content { flex-direction: column; }
+            #about .about-visual { margin-top: 1rem; min-height: 200px; }
+
+            .how-it-works-steps { flex-direction: column; align-items: center; }
+            .step { flex-basis: 100%; max-width: 400px; }
+
+            .pricing-plans { flex-direction: column; align-items: center; }
+            .pricing-plan { width: 90%; max-width: 400px; }
+
+            .newsletter-signup input[type="email"] { width: 60%; }
+            .newsletter-signup button { width: auto; }
+        }
+
+        @media (max-width: 480px) {
+            .container { width: 95%; }
+            #home h1 { font-size: 1.8rem; }
+            #home p { font-size: 0.9rem; }
+            #home .cta-buttons .btn { padding: 12px 20px; font-size: 0.9rem; }
+            nav .logo { font-size: 1.5rem; }
+            .menu-toggle { font-size: 1.3rem; }
+            .service-card, .tool-item, .testimonial-card, .pricing-plan, .contact-form { padding: 1.5rem; }
+        }
+
+    </style>
+    <!-- Google Fonts (Roboto and Montserrat) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Digi Nepal<span>Pro</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+            <ul id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#tools">AI Tools</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home">
+            <div class="container">
+                <h1>Grow Smarter with AI-Powered Digital Marketing</h1>
+                <p>Digi Nepal Pro helps Nepali businesses thrive online using AI tools and automation. Unlock your digital growth with our next-gen strategies.</p>
+                <div class="cta-buttons">
+                    <a href="#pricing" class="btn btn-primary">Get Started Free</a>
+                    <a href="#tools" class="btn btn-secondary">Explore AI Tools</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about">
+            <div class="container">
+                <h2>About Digi Nepal Pro</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission</h3>
+                        <p>Empower Nepal’s digital economy with cutting-edge AI marketing solutions, making advanced technology accessible for sustainable growth.</p>
+                        <h3>Our Vision</h3>
+                        <p>To be the leading force in making powerful AI technology accessible and beneficial for small businesses and the youth of Nepal, fostering innovation and digital literacy.</p>
+                        <p>We believe in leveraging artificial intelligence to simplify complexities, automate processes, and unlock new opportunities for businesses of all sizes in Nepal.</p>
+                    </div>
+                    <div class="about-visual">
+                        <!-- Visual representation of AI/Tech in Nepal -->
+                        AI for Nepali Growth
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI-Powered Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2>Our AI-Powered Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="icon">🧠</div> <!-- Brain for Smart SEO -->
+                        <h3>Smart SEO &amp; AI Content Generation</h3>
+                        <p>Optimize your online presence with AI-driven SEO strategies and create compelling content that ranks and converts.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">📱</div> <!-- Mobile for Social Media -->
+                        <h3>AI-Driven Social Media Marketing</h3>
+                        <p>Engage your audience effectively with AI-powered social media campaigns, analytics, and content scheduling.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">⚙️</div> <!-- Gear for Automation -->
+                        <h3>Automated Campaign Management</h3>
+                        <p>Save time and improve ROI with AI tools that automate and optimize your marketing campaigns across channels.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">🎨</div> <!-- Palette for Design -->
+                        <h3>AI Website Design &amp; Personalization</h3>
+                        <p>Create stunning, user-friendly websites with AI assistance and deliver personalized experiences to your visitors.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon">📊</div> <!-- Chart for Audit -->
+                        <h3>Marketing Audit Tools Powered by AI</h3>
+                        <p>Get comprehensive insights into your current marketing performance with our intelligent audit tools and identify growth areas.</p>
+                    </div>
+                     <div class="service-card">
+                        <div class="icon">🤖</div> <!-- Robot for Chatbots -->
+                        <h3>AI Chatbots &amp; Customer Engagement</h3>
+                        <p>Enhance customer support and engagement with intelligent AI chatbots available 24/7.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Tools Marketplace Section -->
+        <section id="tools">
+            <div class="container">
+                <h2>AI Tools Marketplace</h2>
+                <p style="text-align:center; max-width: 700px; margin-left:auto; margin-right:auto;">Discover a curated selection of built-in and recommended AI tools to supercharge your marketing efforts. Categorized for your convenience.</p>
+                <div class="tools-categories" id="toolsCategories">
+                    <button class="active" data-filter="all">All Tools</button>
+                    <button data-filter="seo">SEO</button>
+                    <button data-filter="content">Content</button>
+                    <button data-filter="design">Design</button>
+                    <button data-filter="analytics">Analytics</button>
+                    <button data-filter="engagement">Engagement</button>
+                </div>
+                <div class="tools-grid" id="toolsGrid">
+                    <div class="tool-item" data-category="seo">
+                        <h4>Keyword Genius AI</h4>
+                        <p>Uncover high-potential keywords for your Nepali audience.</p>
+                        <span class="category-tag">SEO</span>
+                    </div>
+                    <div class="tool-item" data-category="content">
+                        <h4>ContentCraft AI</h4>
+                        <p>Generate blog posts, social media updates, and ad copy in minutes.</p>
+                        <span class="category-tag">Content</span>
+                    </div>
+                    <div class="tool-item" data-category="design">
+                        <h4>DesignSpark AI</h4>
+                        <p>Create basic logos and social media graphics with AI assistance.</p>
+                        <span class="category-tag">Design</span>
+                    </div>
+                    <div class="tool-item" data-category="analytics">
+                        <h4>InsightAI Metrics</h4>
+                        <p>Track your campaign performance with AI-driven analytics.</p>
+                        <span class="category-tag">Analytics</span>
+                    </div>
+                    <div class="tool-item" data-category="engagement">
+                        <h4>EngageBot AI</h4>
+                        <p>Automate responses and engage customers on social media.</p>
+                        <span class="category-tag">Engagement</span>
+                    </div>
+                    <div class="tool-item" data-category="seo">
+                        <h4>RankBoost AI</h4>
+                        <p>AI-powered on-page SEO analysis and recommendations.</p>
+                        <span class="category-tag">SEO</span>
+                    </div>
+                     <div class="tool-item" data-category="content">
+                        <h4>NepaliWriter AI</h4>
+                        <p>AI tool specialized in generating marketing content in Nepali.</p>
+                        <span class="category-tag">Content</span>
+                    </div>
+                    <div class="tool-item" data-category="analytics">
+                        <h4>PredictiveLead AI</h4>
+                        <p>Forecast marketing trends and identify potential leads using AI.</p>
+                        <span class="category-tag">Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="how-it-works-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Choose Your Goal</h3>
+                        <p>Define what you want to achieve – more leads, higher engagement, better brand visibility, etc.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Select AI Service/Tool</h3>
+                        <p>Pick from our range of AI-powered services or tools that align with your specific business objectives.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Watch Your Business Grow</h3>
+                        <p>Implement the AI strategies and witness tangible results as your business expands its digital footprint.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials & Success Stories Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2>Testimonials &amp; Success Stories</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="quote">"Digi Nepal Pro's AI tools revolutionized our content strategy. We're reaching more customers than ever before in Kathmandu!"</p>
+                        <p class="author">- Aasha Sharma, Local Boutique Owner</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="quote">"The automated campaign management saved us countless hours and significantly improved our ad spend efficiency. Highly recommend for startups in Nepal."</p>
+                        <p class="author">- Bikram Thapa, Tech Startup Founder</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="quote">"Thanks to their AI-driven SEO, our website traffic from Nepal has tripled. Their team understands the local market."</p>
+                        <p class="author">- Sunita Maharjan, Travel Agency Manager</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing">
+            <div class="container">
+                <h2>Our Pricing Plans</h2>
+                <div class="pricing-plans">
+                    <div class="pricing-plan">
+                        <h3>Free Plan</h3>
+                        <p class="price">NPR 0<span>/month</span></p>
+                        <p>Get started with essential AI marketing tools.</p>
+                        <ul>
+                            <li>Basic AI Keyword Suggestions</li>
+                            <li>Limited AI Content Snippets (5/month)</li>
+                            <li>Basic Social Media Analytics</li>
+                            <li>Access to 1 AI Audit Tool</li>
+                            <li>Community Support</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary">Sign Up for Free</a>
+                    </div>
+                    <div class="pricing-plan premium">
+                        <h3>Premium Plan</h3>
+                        <p class="price">NPR 4999<span>/month</span></p>
+                        <p>Full access to advanced AI features and strategic support.</p>
+                        <ul>
+                            <li>Advanced AI Keyword Research &amp; Strategy</li>
+                            <li>Unlimited AI Content Generation</li>
+                            <li>AI-Driven Social Media Scheduling &amp; Posting</li>
+                            <li>Full Suite of AI Audit Tools</li>
+                            <li>Automated Campaign Management Features</li>
+                            <li>AI Website Personalization Insights</li>
+                            <li>Monthly AI Strategy Sessions</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Choose Premium</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p style="text-align:center; max-width: 700px; margin-left:auto; margin-right:auto;">Have questions or ready to start your AI marketing journey? Reach out to us! We're here to help Nepali businesses succeed.</p>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" name="name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In (Optional):</label>
+                            <input type="text" id="service" name="service">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message:</label>
+                            <textarea id="message" name="message" required=""></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Send Inquiry</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Connect With Us</h3>
+                    <p>Email: info@diginepal.pro (Example)</p>
+                    <p>Phone / WhatsApp: +977 98XXXXXXXX (Example)</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">F</a> <!-- Placeholder, use actual icons if possible -->
+                        <a href="#" aria-label="Instagram">I</a>
+                        <a href="#" aria-label="LinkedIn">L</a>
+                        <a href="#" aria-label="WhatsApp">W</a>
+                    </div>
+                    <div class="newsletter-signup">
+                        <h4>Subscribe to Our AI Marketing Insights Newsletter</h4>
+                        <form id="newsletterForm">
+                            <input type="email" name="newsletter_email" placeholder="Enter your email" required="">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Digi Nepal Pro. All Rights Reserved.</p>
+            <p>Empowering Nepali Businesses with AI Digital Marketing.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#navLinks a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        });
+
+        // Active Navigation Link Highlighting
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', ()=> {
+            let current = '';
+            sections.forEach( section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3) ) {
+                    current = section.getAttribute('id');
+                }
+            })
+
+            navLi.forEach( a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').substring(1) === current) {
+                    a.classList.add('active');
+                }
+            })
+        });
+
+
+        // AI Tools Marketplace Filter
+        const filterButtons = document.querySelectorAll('#toolsCategories button');
+        const toolItems = document.querySelectorAll('#toolsGrid .tool-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Manage active button state
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                toolItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Contact Form Submission (Basic Placeholder)
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real scenario, you'd send this data to a server
+            alert('Thank you for your inquiry! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Newsletter Form Submission (Basic Placeholder)
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            alert(`Thank you for subscribing with ${emailInput.value}!`);
+            newsletterForm.reset();
+        });
+
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    </script>
+
+
+</body></html>
